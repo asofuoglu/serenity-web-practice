@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 
-public class SignIn extends BasePage {
+public class SignIn {
   public static Performable withEmail(String email) {
     return Task.where(
         "{0} entering '" + email + "'",
