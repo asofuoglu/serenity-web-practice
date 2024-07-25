@@ -23,5 +23,7 @@ Feature: Sign in & Purchase a product
     When he looks up product "Printed Summer Dress"
     Then he should see the product within results about "Printed Summer Dress"
     And he selects the product "Printed Chiffon Dress"
-    Then he selects the product size "M"
+    Then he selects the available product size
+    When he clicks on the Proceed to the checkout button
+    Then he should see the title "Order"
 

@@ -12,6 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import net.serenitybdd.core.annotations.findby.By;
@@ -19,6 +20,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.questions.Visibility;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.yaml.snakeyaml.Yaml;
@@ -128,11 +130,25 @@ public class EcommerceStepDefinitions {
     actor.attemptsTo(Click.on(dynamicProductWebElement(productName)));
   }
 
-  @Then("{actor} selects the product size {string}")
-  public void heSelectsTheProductSize(Actor actor, String size) {
+  @Then("{actor} selects the available product size")
+  public void heSelectsTheProductSize(Actor actor) {
     getDriver().switchTo().frame(ProductDetailsPage.getProductDetailsIframe());
-    actor.attemptsTo(
-        SelectFromOptions.byVisibleText(size).from(ProductDetailsPage.PRODUCT_SIZE_DROPDOWN));
-    Utils.waitForSomeTime(8);
+    List<String> sizes = Arrays.asList("S", "M", "L");
+    for (String size : sizes) {
+      actor.attemptsTo(
+          SelectFromOptions.byVisibleText(size).from(ProductDetailsPage.PRODUCT_SIZE_DROPDOWN));
+      Utils.waitForSomeTime(1);
+
+      if (actor.asksFor(Visibility.of(ProductDetailsPage.ADD_TO_CART_BUTTON))) {
+        actor.attemptsTo(Click.on(ProductDetailsPage.ADD_TO_CART_BUTTON));
+        break;
+      }
+    }
+    getDriver().switchTo().defaultContent();
+  }
+
+  @When("{actor} clicks on the Proceed to the checkout button")
+  public void heClicksOnTheProceedToTheCheckoutButton(Actor actor) {
+    actor.attemptsTo(Click.on(ProductDetailsPage.PROCEED_TO_CHECKOUT_BUTTON));
   }
 }
