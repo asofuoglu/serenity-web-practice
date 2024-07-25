@@ -121,7 +121,7 @@ public class EcommerceStepDefinitions {
   }
 
   @When("{actor} clicks on the log in button")
-  public void heClicksOnTheLogInButton(Actor actor) throws InterruptedException {
+  public void heClicksOnTheLogInButton(Actor actor) {
     actor.attemptsTo(Click.on(SignInForm.LOGIN_BUTTON));
   }
 
