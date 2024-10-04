@@ -1,6 +1,6 @@
-package starter.navigation;
+package starter.pageObjects.navigation;
 
-import ecommerce.EcommerceHomePage;
+import starter.pageObjects.EcommerceHomePage;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;

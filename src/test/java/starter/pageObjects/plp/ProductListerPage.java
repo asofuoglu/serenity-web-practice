@@ -1,4 +1,4 @@
-package starter.plp;
+package starter.pageObjects.plp;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;

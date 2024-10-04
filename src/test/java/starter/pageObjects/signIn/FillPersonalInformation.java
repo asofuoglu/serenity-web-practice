@@ -1,4 +1,4 @@
-package starter.signIn;
+package starter.pageObjects.signIn;
 
 import static starter.Utils.extractDateParts;
 
@@ -20,8 +20,6 @@ public class FillPersonalInformation implements Task {
 
   @Override
   public <T extends Actor> void performAs(T actor) {
-    Faker faker = new Faker();
-    actor.remember("userPassword", data.get("password"));
     if ("Mr.".equals(data.get("title"))) {
       actor.attemptsTo(CheckCheckbox.of(PersonalInformationForm.TITLE_MR));
     } else {

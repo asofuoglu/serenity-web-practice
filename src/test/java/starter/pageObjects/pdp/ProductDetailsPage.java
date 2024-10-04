@@ -1,10 +1,11 @@
-package starter.pdp;
+package starter.pageObjects.pdp;
 
 import static net.serenitybdd.core.Serenity.getDriver;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import starter.Utils;
 
 public class ProductDetailsPage {
   public static WebElement getProductDetailsIframe() {

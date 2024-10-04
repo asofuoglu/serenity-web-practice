@@ -2,10 +2,9 @@ package starter.stepdefinitions;
 
 import static net.serenitybdd.core.Serenity.getDriver;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
-import static starter.plp.ProductListerPage.dynamicProductWebElement;
+import static starter.pageObjects.plp.ProductListerPage.dynamicProductWebElement;
 
 import com.github.javafaker.Faker;
-import ecommerce.plp.ProductListerPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -27,10 +26,11 @@ import org.yaml.snakeyaml.Yaml;
 import starter.Constants;
 import starter.CredentialsNotFoundException;
 import starter.Utils;
-import starter.navigation.NavigateTo;
-import starter.pdp.ProductDetailsPage;
-import starter.search.LookForInformation;
-import starter.signIn.*;
+import starter.pageObjects.navigation.NavigateTo;
+import starter.pageObjects.pdp.ProductDetailsPage;
+import starter.pageObjects.search.LookForInformation;
+import starter.pageObjects.signIn.*;
+import starter.screenplay.questions.ProductListerPage;
 
 public class EcommerceStepDefinitions {
   private static final Faker faker = new Faker();

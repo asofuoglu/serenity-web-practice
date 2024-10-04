@@ -1,4 +1,4 @@
-package starter.signIn;
+package starter.pageObjects.signIn;
 
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;

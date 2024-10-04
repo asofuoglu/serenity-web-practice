@@ -1,4 +1,4 @@
-package starter.signIn;
+package starter.pageObjects.signIn;
 
 import net.serenitybdd.screenplay.targets.Target;
 

@@ -1,4 +1,4 @@
-package ecommerce.plp;
+package starter.screenplay.questions;
 
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;

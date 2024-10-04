@@ -1,4 +1,4 @@
-package starter.signIn;
+package starter.pageObjects.signIn;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
