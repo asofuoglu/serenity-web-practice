@@ -1,15 +1,10 @@
 package starter.screenplay.interactions;
 
+import java.util.Map;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
-import net.serenitybdd.screenplay.actions.Click;
 import starter.pageObjects.signIn.FillPersonalInformation;
-import starter.pageObjects.signIn.PersonalInformationForm;
-import starter.pageObjects.signIn.SignIn;
-import starter.screenplay.tasks.SignUp;
-
-import java.util.Map;
 
 public class FillPersonalInformationForm implements Interaction {
   private final Map<String, String> userDetails;

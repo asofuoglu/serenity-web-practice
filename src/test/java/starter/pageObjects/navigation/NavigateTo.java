@@ -15,4 +15,9 @@ public class NavigateTo {
     return Task.where(
         "{0} opens the Ecommerce home page", Open.browserOn().the(EcommerceHomePage.class));
   }
+
+  public static Performable theLoginPage() {
+    return Task.where(
+            "{0} opens the ING login page", Open.browserOn().the(LoginPage.class));
+  }
 }
