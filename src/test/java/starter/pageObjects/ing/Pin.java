@@ -24,42 +24,49 @@ public class Pin implements Task {
     for (int i = 0; i < 3; i++) {
       // Click.on(PinsPage.NUMBER_ONE);
       // Evaluate.javascript(PinsPage.ONE );
-      try {
-        js.executeScript(
-            "document.querySelector('#meansContainer > ing-orange-it-pinpad')."
-                + "shadowRoot.querySelector('.pinpad-keyboard')."
-                + "shadowRoot.querySelector('button[aria-label=\"Uno\"]').click();");
-      } catch (JavascriptException e) {
-        System.out.println("First click failed, trying the second click.");
-        try {
-          js.executeScript(
-              "document.querySelector('#meansContainer > ing-orange-it-secure-otp')."
-                  + "shadowRoot.querySelector('smsotp-pinpad')."
-                  + "shadowRoot.querySelector('.pinpad-keyboard')."
-                  + "shadowRoot.querySelector('button[aria-label=\"Uno\"]').click();");
-        } catch (JavascriptException ex) {
-          System.out.println("Second click also failed: " + ex.getMessage());
-        }
-      }
+      selectPinOne();
     }
     // Click.on(PinsPage.CONTINUE_BUTTON);
+    clickOnContinue();
+  }
+
+  public static Performable select() {
+    return Tasks.instrumented(Pin.class);
+  }
+
+  private void selectPinOne() {
     try {
       js.executeScript(
-              "document.querySelector('#meansContainer > ing-orange-it-pinpad').shadowRoot.querySelector('.continue__button').click();");
+          "document.querySelector('#meansContainer > ing-orange-it-pinpad')."
+              + "shadowRoot.querySelector('.pinpad-keyboard')."
+              + "shadowRoot.querySelector('button[aria-label=\"Uno\"]').click();");
+    } catch (JavascriptException e) {
+      System.out.println("First click failed, trying the second click.");
+      try {
+        js.executeScript(
+            "document.querySelector('#meansContainer > ing-orange-it-secure-otp')."
+                + "shadowRoot.querySelector('smsotp-pinpad')."
+                + "shadowRoot.querySelector('.pinpad-keyboard')."
+                + "shadowRoot.querySelector('button[aria-label=\"Uno\"]').click();");
+      } catch (JavascriptException ex) {
+        System.out.println("Second click also failed: " + ex.getMessage());
+      }
+    }
+  }
+
+  private void clickOnContinue() {
+    try {
+      js.executeScript(
+          "document.querySelector('#meansContainer > ing-orange-it-pinpad').shadowRoot.querySelector('.continue__button').click();");
     } catch (JavascriptException e) {
       System.out.println("First click failed, trying the second click.");
 
       try {
         js.executeScript(
-                "document.querySelector('ing-orange-it-pinpad,ing-orange-it-secure-otp').shadowRoot.querySelector('smsotp-footer').shadowRoot.querySelector('.continue__button').click();");
+            "document.querySelector('ing-orange-it-pinpad,ing-orange-it-secure-otp').shadowRoot.querySelector('smsotp-footer').shadowRoot.querySelector('.continue__button').click();");
       } catch (JavascriptException ex) {
         System.out.println("Second click also failed: " + ex.getMessage());
       }
     }
-
-  }
-
-  public static Performable select() {
-    return Tasks.instrumented(Pin.class);
   }
 }
