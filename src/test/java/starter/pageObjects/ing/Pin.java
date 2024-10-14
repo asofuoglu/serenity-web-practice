@@ -11,7 +11,6 @@ import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
-import starter.Utils;
 
 public class Pin {
   JavascriptExecutor js = (JavascriptExecutor) getDriver();
@@ -20,7 +19,6 @@ public class Pin {
     return Task.where(
         "{0} clicking on Continue button",
         actor -> {
-          //Utils.waitForSomeTime(3);
           actor.attemptsTo(
               WaitUntil.the(PinsPage.PINPAD_HEADER, WebElementStateMatchers.isVisible())
                   .forNoMoreThan(20)

@@ -35,8 +35,4 @@ public class PinsPage {
   public static final Target PINPAD_HEADER =
       Target.the("Pin pad Header text")
           .located(ByShadow.cssSelector(".position-header-text", "ing-orange-it-pinpad"));
-  // document.querySelector("#meansContainer >
-  // ing-orange-it-pinpad").shadowRoot.querySelector(".continue__button")
-  public static final String ONE =
-      "document.querySelector('#meansContainer > ing-orange-it-pinpad').shadowRoot.querySelector('.pinpad-keyboard').shadowRoot.querySelector('button[aria-label=\"Uno\"]')";
 }
