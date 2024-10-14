@@ -7,17 +7,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.time.Duration;
-import java.util.List;
-
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Consequence;
 import net.serenitybdd.screenplay.GivenWhenThen;
-import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.hamcrest.Matchers;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import starter.Utils;
 import starter.pageObjects.ing.Cookies;
 import starter.pageObjects.ing.CurrentUrl;
 import starter.pageObjects.ing.Login;
