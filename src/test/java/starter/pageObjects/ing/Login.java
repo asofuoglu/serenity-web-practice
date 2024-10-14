@@ -23,8 +23,8 @@ public class Login implements Task {
   public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
         WaitUntil.the(LoginForm.PERSON_ID_FIELD, WebElementStateMatchers.isVisible()),
-        Enter.theValue("0001003738").into(LoginForm.PERSON_ID_FIELD),
-        Enter.theValue("12/08/1996").into(LOGIN_DATE_OF_BIRTH_FIELD),
+        Enter.theValue("0001000020").into(LoginForm.PERSON_ID_FIELD),
+        Enter.theValue("26/04/1972").into(LOGIN_DATE_OF_BIRTH_FIELD),
         Evaluate.javascript(CONTINUE_BUTTON + ".click();"),
         WaitUntil.the(LoginForm.PERSON_ID_FIELD, WebElementStateMatchers.isVisible())
             .forNoMoreThan(20)

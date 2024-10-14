@@ -4,5 +4,6 @@ Feature: Login to TST
   Scenario: Customer login to TST env
     Given Mike is on the login page
     And he enter the credentials
-    And he enter pin
+    When he enter pin
+    Then he navigated to the homepage
   

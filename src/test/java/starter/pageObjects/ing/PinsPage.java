@@ -8,7 +8,7 @@ public class PinsPage {
       Target.the("Pin number one -1")
           .located(
               ByShadow.cssSelector(
-                  "button[aria-label='Uno']",
+                  "button[aria-label=\"Uno\"]",
                   "#meansContainer > ing-orange-it-pinpad",
                   ".pinpad-keyboard"));
   public static final Target CONTINUE_BUTTON =
