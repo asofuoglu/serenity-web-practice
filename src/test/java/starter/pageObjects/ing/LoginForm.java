@@ -1,6 +1,5 @@
 package starter.pageObjects.ing;
 
-
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.shadow.ByShadow;
 
@@ -23,7 +22,5 @@ public class LoginForm {
       "document.querySelector('ing-orange-it-identification').shadowRoot.querySelector('.continue__button').shadowRoot.querySelector('.button-content')";
   public static final Target CONTINUE_BUTTON1 =
       Target.the("Continue button")
-          .located(
-              ByShadow.cssSelector(
-                  ".button-content", "ing-orange-it-identification", ".continue__button"));
+          .located(ByShadow.cssSelector(".continue__button", "ing-orange-it-identification"));
 }
