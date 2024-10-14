@@ -14,17 +14,13 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class Login implements Task {
-  public static Performable withCredentials() {
-    return Tasks.instrumented(Login.class);
-  }
-
-  @Override
-  public <T extends Actor> void performAs(T actor) {
-    actor.attemptsTo(
+public class Login {
+  public static Performable withCredentials(String personId, String dob) {
+    return Task.where(
+        "{0} logs in using person ID: " + personId,
         WaitUntil.the(LoginForm.PERSON_ID_FIELD, WebElementStateMatchers.isVisible()),
-        Enter.theValue("0001000020").into(LoginForm.PERSON_ID_FIELD),
-        Enter.theValue("26/04/1972").into(LOGIN_DATE_OF_BIRTH_FIELD),
+        Enter.theValue(personId).into(LoginForm.PERSON_ID_FIELD), // 0001000020
+        Enter.theValue(dob).into(LOGIN_DATE_OF_BIRTH_FIELD), // 26/04/1972
         Evaluate.javascript(CONTINUE_BUTTON + ".click();"),
         WaitUntil.the(LoginForm.PERSON_ID_FIELD, WebElementStateMatchers.isVisible())
             .forNoMoreThan(20)
